@@ -34,7 +34,7 @@ if (!Array.prototype.indexOf) {
 
 (function($) {
 	var $overlay,
-		classPrefix = 'jsModal',
+		classPrefix = 'js-modal',
 		modalClass = classPrefix,
 		contentContainerClass = classPrefix + '-content-container',
 		contentClass = classPrefix + '-content',
