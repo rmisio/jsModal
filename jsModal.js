@@ -65,7 +65,7 @@ if (!Array.prototype.indexOf) {
 		$body = $body ? $body : $('body');
 
 		if (!options.modalOuterElMarkup) {
-			this.$modal = $('<div><a href="#" class="' + closeClass + '">Close</a>' +
+			this.$modal = $('<div><a href="#" class="' + closeClass + '"></a>' +
 			'<div class="' + contentContainerClass + '"></div></div>');
 		} else {
 			this.$modal = $(options.modalOuterElMarkup);
