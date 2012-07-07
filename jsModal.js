@@ -34,7 +34,7 @@ if (!Array.prototype.indexOf) {
 
 (function($) {
 	var $overlay,
-		classPrefix = 'modal',
+		classPrefix = 'jsModal',
 		modalClass = classPrefix,
 		contentContainerClass = classPrefix + '-content-container',
 		contentClass = classPrefix + '-content',
@@ -160,7 +160,7 @@ if (!Array.prototype.indexOf) {
 		return this.openFlag;
 	};
 	
-	$.fn.modal = function(options) {
+	$.fn.jsModal = function(options) {
 		return this.each(function() {
 			var $this = $(this),
 				modalInstance = $this.data('modal');
