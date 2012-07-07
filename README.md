@@ -1,4 +1,4 @@
 jsModal
 =======
 
-A JavaScript modal dialog.
+A jQuery plugin to display a modal dialog.
