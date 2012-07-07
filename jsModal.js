@@ -50,6 +50,12 @@ if (!Array.prototype.indexOf) {
 		}
 	});
 	
+	$window.bind('resize.modal', function() {
+		for (var i=0; i < openModals.length; i++) {
+			openModals[i]._setPosition();
+		}
+	});
+	
 	function createOverlay() {
 		return $('<div />').addClass(overlayClass);	
 	}
