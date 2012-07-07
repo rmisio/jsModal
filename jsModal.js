@@ -49,7 +49,7 @@ if (!Array.prototype.indexOf) {
 			openModals[openModals.length - 1].close();
 		}
 	});
-		
+	
 	function createOverlay() {
 		return $('<div />').addClass(overlayClass);	
 	}
@@ -84,7 +84,6 @@ if (!Array.prototype.indexOf) {
 			.attr(options.attr)
 			.addClass(modalClass)
 			.hide();
-		this._setPosition();
 		
 		// assign the reference to this object in the data of the $modal el
 		this.$modal.data('modal', this);
@@ -106,9 +105,13 @@ if (!Array.prototype.indexOf) {
 	};
 	
 	Modal.prototype._setPosition = function() {
+		var winHeight = $window.height(),
+			modalHeight = this.$modal.outerHeight(true),
+			topPos = modalHeight >= winHeight ? $window.scrollTop() : ((winHeight - modalHeight) / 2) + $window.scrollTop();
+			
 		this.$modal.css({
-				left: (($window.width() - this.$modal.outerWidth()) / 2) + $window.scrollLeft(),
-				top: (($window.height() - this.$modal.outerHeight()) / 2) + $window.scrollTop()
+				left: (($window.width() - this.$modal.outerWidth(true)) / 2) + $window.scrollLeft(),
+				top: topPos
 			});
 	};
 	
@@ -141,6 +144,7 @@ if (!Array.prototype.indexOf) {
 		
 		openModals.push(this);
 		this._showOverlay();
+		this._setPosition();
 		this.$modal.show();
 		this.openFlag = true;
 	};
