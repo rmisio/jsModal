@@ -85,7 +85,9 @@ if (!Array.prototype.indexOf) {
 		}
 		
 		// put the content inside the modal, then append the modal to the body and position it
-		$('.' + contentContainerClass, this.$modal).replaceWith($content);
+		$('.' + contentContainerClass, this.$modal).replaceWith(
+			$content.addClass(contentClass)
+		);
 		this.$modal.appendTo($body)
 			.attr(options.attr)
 			.addClass(modalClass)
@@ -113,7 +115,7 @@ if (!Array.prototype.indexOf) {
 	Modal.prototype._setPosition = function() {
 		var winHeight = $window.height(),
 			modalHeight = this.$modal.outerHeight(true),
-			topPos = modalHeight >= winHeight ? $window.scrollTop() : ((winHeight - modalHeight) / 2) + $window.scrollTop();
+			topPos = modalHeight >= winHeight ? $window.scrollTop() + 15 : ((winHeight - modalHeight) / 2) + $window.scrollTop();
 			
 		this.$modal.css({
 				left: (($window.width() - this.$modal.outerWidth(true)) / 2) + $window.scrollLeft(),
